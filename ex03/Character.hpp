@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:15:07 by zhlim             #+#    #+#             */
-/*   Updated: 2023/11/01 00:19:27 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:48:28 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Character: public ICharacter {
 		
 		std::string const	&getName() const;
 		AMateria			*getSlot(int i) const;
-		AMateria			**getSlot();
+		AMateria *const		*getSlot() const;
 		void 				equip(AMateria* m);
 		void 				unequip(int idx);
 		void 				use(int idx, ICharacter& target);

@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:06:20 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:21:40 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:33:50 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Animal {
 
 	public:
 		Animal();
+		Animal(Animal &rhs);
 		Animal(std::string type);
 		virtual ~Animal();
 

@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:32:30 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:25:46 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:07:27 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ WrongAnimal::WrongAnimal(std::string type): type(type) {
 	std::cout << "Created an Animal of " << this->type << GREY << " Constructor" << RESET << std::endl;
 }
 
+WrongAnimal::WrongAnimal(WrongAnimal &rhs): type(rhs.getType()) {
+	std::cout << "Created an Animal of " << this->type << GREY << " Constructor" << RESET << std::endl;
+}
+
 WrongAnimal::~WrongAnimal() {
 	std::cout << "Destroyed an Animal of " << this->type << GREY << " Destructor" << RESET << std::endl;
 }
@@ -31,4 +35,9 @@ void	WrongAnimal::makeSound() const {
 
 std::string	WrongAnimal::getType() const {
 	return this->type;
+}
+
+WrongAnimal		&WrongAnimal::operator=(WrongAnimal &rhs) {
+	this->type = rhs.getType();
+	return *this;
 }

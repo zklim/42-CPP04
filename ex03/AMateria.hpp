@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:48:15 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 16:19:08 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:25:24 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ class AMateria {
 	
 	public:
 		AMateria(std::string const & type);
+		AMateria(AMateria &rhs);
 		virtual ~AMateria();
 		
 		std::string const	&getType() const; //Returns the materia type
 		virtual AMateria*	clone() const = 0;
 		virtual void		use(ICharacter& target);
+		AMateria			&operator=(AMateria &rhs);
 };

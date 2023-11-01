@@ -6,7 +6,7 @@
 #    By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 15:01:34 by zhlim             #+#    #+#              #
-#    Updated: 2023/10/30 16:36:38 by zhlim            ###   ########.fr        #
+#    Updated: 2023/11/01 13:18:49 by zhlim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ OBJS		= $(SRCS:.cpp=.o)
 CC			= c++
 
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
-
 NAME		= main
 
 .cpp.o:

@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:51:00 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:25:53 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:08:46 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 WrongCat::WrongCat(): WrongAnimal("Cat") {
 	this->brain = new Brain();
+}
+
+WrongCat::WrongCat(std::string type): WrongAnimal(type) {
+	this->brain = new Brain();
+}
+
+WrongCat::WrongCat(WrongCat &rhs): WrongAnimal(rhs.getType()) {
+	this->brain = &rhs.getBrain();
 }
 
 WrongCat::~WrongCat() {
@@ -27,4 +35,9 @@ void	WrongCat::makeSound() const {
 
 Brain	&WrongCat::getBrain() const {
 	return *this->brain;
+}
+
+WrongCat	&WrongCat::operator=(WrongCat &rhs) {
+	this->brain = &rhs.getBrain();
+	return *this;
 }

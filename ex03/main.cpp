@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:21:34 by zhlim             #+#    #+#             */
-/*   Updated: 2023/11/01 02:33:52 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 13:17:04 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
 	Character	*hero = new Character("hero");
 	Character	*hero2 = new Character("hero2");
 	AMateria	*floor;
-	
+
 	for (int i = 0; i < 4; i++) {
 		hero->equip(new Ice());
 	}
@@ -82,9 +82,13 @@ int main()
 	for (int i = 0; i < 4; i++) {
 		src2->learnMateria(new Ice());
 	}
+	AMateria	*floor2;
+	AMateria	*floor3;
+	floor2 = src2->getSlots(0); // Get to avoid memory leaks
+	floor3 = src2->getSlots(1);
 	src2->learnMateria(new Cure()); // Learning more than slots
 	src2->learnMateria(new Cure()); // Learning more than slots
-	AMateria	**slots = src2->getSlots();
+	AMateria *const	*slots = src2->getSlots();
 	for (int i = 0; i < 4; i++) {
 		std::cout << i << ": " << slots[i]->getType() << std::endl;
 	}
@@ -92,6 +96,28 @@ int main()
 	if (!tmp)
 		std::cout << "No Fire to create: " << tmp << std::endl;
 	delete src2;
+	delete floor2;
+	delete floor3;
+	std::cout << std::endl;
+	
+	std::cout << "===============Test MateriaSource deep copy===============" << std::endl;
+	MateriaSource	*ori_src = new MateriaSource();
+	MateriaSource	*copy_src = new MateriaSource();
+	AMateria		*floor4;
+
+	for (int i = 0; i < 4; i++) {
+		ori_src->learnMateria(new Cure());
+	}
+	*copy_src = *ori_src;
+	std::cout << copy_src->getSlots(0)->getType() << GREY " copied" RESET << std::endl;
+	std::cout << ori_src->getSlots(0)->getType() << GREY " original" RESET << std::endl;
+	floor4 = ori_src->getSlots(0); // Hold to avoid memory leak
+	ori_src->learnMateria(new Ice());
+	std::cout << copy_src->getSlots(0)->getType() << GREY " copied" RESET << std::endl;
+	std::cout << ori_src->getSlots(0)->getType() << GREY " original" RESET << std::endl;
+	delete ori_src;
+	delete copy_src;
+	delete floor4;
 	
 	// system("leaks -q main");
 	return 0;

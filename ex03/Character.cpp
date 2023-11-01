@@ -6,26 +6,23 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:13:23 by zhlim             #+#    #+#             */
-/*   Updated: 2023/11/01 00:45:52 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:51:48 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(std::string const name) {
-	this->name = name;
+Character::Character(std::string const name): name(name) {
 	std::cout << "Brave " << this->name << " has borned!" << GREY " Constructor" RESET << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->slot[i] = NULL;
 }
 
-Character::Character(Character const &rhs) {
+Character::Character(Character const &rhs): name(rhs.getName()) {
 	if (this != &rhs) {
-		for (int i = 0; i < 4; i++)
-			if (this->slot[i])
-				delete slot[i];
 		for (int i = 0; i < 4; i++)
 			if (rhs.slot[i])
 				this->slot[i] = rhs.slot[i]->clone();
-		this->name = rhs.name;
 	}
 }
 
@@ -44,7 +41,7 @@ AMateria			*Character::getSlot(int i) const {
 	return this->slot[i];
 }
 
-AMateria			**Character::getSlot() {
+AMateria *const		*Character::getSlot() const {
 	return this->slot;
 }
 

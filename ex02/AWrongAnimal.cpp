@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   AWrongAnimal.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:32:30 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:30:58 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:31:02 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AWrongAnimal.hpp"
 
-AWrongAnimal::AWrongAnimal() {
-	this->type = "Undefined";
+AWrongAnimal::AWrongAnimal(): type("Undefined") {
+	std::cout << "Created an Animal of " << this->type << GREY << " Constructor" << RESET << std::endl;
+}
+
+AWrongAnimal::AWrongAnimal(AWrongAnimal &rhs): type(rhs.getType()) {
 	std::cout << "Created an Animal of " << this->type << GREY << " Constructor" << RESET << std::endl;
 }
 
@@ -27,4 +30,9 @@ AWrongAnimal::~AWrongAnimal() {
 
 std::string	AWrongAnimal::getType() const {
 	return this->type;
+}
+
+AWrongAnimal	&AWrongAnimal::operator=(AWrongAnimal &rhs) {
+	this->type = rhs.getType();
+	return *this;
 }

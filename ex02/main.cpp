@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:53:14 by zhlim             #+#    #+#             */
-/*   Updated: 2023/11/01 02:47:44 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:23:33 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int main()
 	delete n;
 	std::cout << std::endl;
 
-	// std::cout << "===============Test Abstract===============" << std::endl;
-	// AAnimal			abstract;
-	// AWrongAnimal	aabstract;
+	// std::cout << "===============Test abstact class===============" << std::endl;
+	// AAnimal			abs;
+	// AWrongAnimal	wabs;
 
 	// system("leaks -q main"); // Check for memory leaks
 	return 0;

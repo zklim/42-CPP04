@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:53:14 by zhlim             #+#    #+#             */
-/*   Updated: 2023/11/01 02:51:51 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:39:08 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int main()
 	aa.makeSound(); 
 	cc.makeSound();
 
-	system("leaks -q main");
+	// system("leaks -q main");
 	return 0;
 }

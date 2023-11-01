@@ -6,14 +6,17 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:36:29 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:22:15 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:45:35 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() {
-	this->type = "Undefined";
+Animal::Animal(): type("Undefined") {
+	std::cout << "Created an Animal of " << this->type << GREY << " Constructor" << RESET << std::endl;
+}
+
+Animal::Animal(Animal &rhs): type(rhs.getType()) {
 	std::cout << "Created an Animal of " << this->type << GREY << " Constructor" << RESET << std::endl;
 }
 

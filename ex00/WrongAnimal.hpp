@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:30:40 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:38:16 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:36:45 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class WrongAnimal {
 	public:
 		WrongAnimal();
 		WrongAnimal(std::string type);
+		WrongAnimal(WrongAnimal &rhs);
 		~WrongAnimal();
 
 		std::string 	getType() const;

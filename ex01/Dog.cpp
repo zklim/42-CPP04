@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:42:37 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:19:42 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:52:20 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 Dog::Dog(): Animal("Dog") {
 	this->brain = new Brain();
+}
+
+Dog::Dog(std::string type): Animal(type) {
+	this->brain = new Brain();
+}
+
+Dog::Dog(Dog &rhs): Animal(rhs.getType()) {
+	this->brain = new Brain(rhs.getBrain());
 }
 
 Dog::~Dog() {

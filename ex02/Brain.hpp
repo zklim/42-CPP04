@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:46:10 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:14:00 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:15:20 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ class Brain {
 
 	public:
 		Brain();
+		Brain(std::string *ideas);
 		Brain(Brain &rhs);
 		~Brain();
 		
-		void		addIdea(int i, std::string idea);
-		std::string	getIdea(int i);
-		std::string	*getIdeas();
-		Brain		&operator=(Brain &rhs);
+		void				addIdea(int i, std::string idea);
+		std::string			getIdea(int i) const;
+		std::string const	*getIdeas() const;
+		Brain				&operator=(Brain &rhs);
 };

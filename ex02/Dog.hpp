@@ -6,7 +6,7 @@
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:14:07 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:30:16 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:21:30 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class Dog: public AAnimal {
 	
 	public:
 		Dog();
+		Dog(std::string type);
+		Dog(Dog &rhs);
 		~Dog();
 		
 		void	makeSound() const;

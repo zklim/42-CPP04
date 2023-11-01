@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   AWrongAnimal.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zhlim <zhlim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:30:40 by zhlim             #+#    #+#             */
-/*   Updated: 2023/10/31 11:30:50 by zhlim            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:30:06 by zhlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ class AWrongAnimal {
 	public:
 		AWrongAnimal();
 		AWrongAnimal(std::string type);
+		AWrongAnimal(AWrongAnimal &rhs);
 		virtual ~AWrongAnimal();
 
 		std::string 	getType() const;
 		virtual void	makeSound() const = 0;
+		AWrongAnimal	&operator=(AWrongAnimal &rhs);
 };
